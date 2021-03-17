@@ -1,7 +1,6 @@
 <?php view::layout('install/layout')?>
 
 <?php view::begin('content');?>
-	
 <div class="mdui-container-fluid">
 	<div class="mdui-typo">
 	  <h1>程序安装 <small>环境检测</small></h1>
