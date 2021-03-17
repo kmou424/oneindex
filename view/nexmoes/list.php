@@ -8,7 +8,7 @@ function file_ico($item){
   if(in_array($ext,['mp4','mkv','webm','avi','mpg', 'mpeg', 'rm', 'rmvb', 'mov', 'wmv', 'mkv', 'asf'])){
   	return "ondemand_video";
   }
-  if(in_array($ext,['ogg','mp3','wav'])){
+  if(in_array($ext,['ogg','mp3','wav','flac'])){
   	return "audiotrack";
   }
   return "insert_drive_file";
@@ -46,7 +46,7 @@ function file_ico($item){
 	font-size:100px;
 	display: block;
 	margin-top: 40px;
-	color: #7ab5ef;
+	color: #7e7e7e;
 }
 .thumb .mdui-list-item span{
 	float: left;
@@ -108,12 +108,14 @@ function file_ico($item){
 </div>
 </div>
 <?php if($readme):?>
-<div class="mdui-typo mdui-shadow-3" style="padding: 20px;margin: 20px; 0">
-	<div class="mdui-chip">
-	  <span class="mdui-chip-icon"><i class="mdui-icon material-icons">face</i></span>
-	  <span class="mdui-chip-title">README.md</span>
+<div class="nexmoe-item">
+	<div class="mdui-typo" style="padding: 20px;">
+		<div class="mdui-chip">
+		  <span class="mdui-chip-icon"><i class="mdui-icon material-icons">face</i></span>
+		  <span class="mdui-chip-title">README.md</span>
+		</div>
+		<?php e($readme);?>
 	</div>
-	<?php e($readme);?>
 </div>
 <?php endif;?>
 </div>
