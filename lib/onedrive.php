@@ -12,11 +12,11 @@
 			$scope = urlencode("offline_access files.readwrite.all");
 			$redirect_uri = self::$redirect_uri;
 			$url = self::$oauth_url."/authorize?client_id={$client_id}&scope={$scope}&response_type=code&redirect_uri={$redirect_uri}";
-			
+
 			if($_SERVER['HTTP_HOST'] != 'localhost'){
 				$url .= '&state='.urlencode('http://'.$_SERVER['HTTP_HOST'].get_absolute_path(dirname($_SERVER['PHP_SELF'])));
 			}
-			
+
 			return $url;
 		}
 
@@ -80,7 +80,7 @@
 			return $request;
 		}
 
-		
+
 		//返回目录信息
 		static function dir($path="/"){
 			$request = self::request($path, "children?select=name,size,folder,@microsoft.graph.downloadUrl,lastModifiedDateTime");
@@ -102,13 +102,13 @@
 		//通过分页获取页面所有item
 		static function dir_next_page($request, &$items, $retry=0){
 			$resp = fetch::get($request);
-			
+
 			$data = json_decode($resp->content, true);
 			if(empty($data) && $retry < 3){
 				$retry += 1;
 				return self::dir_next_page($request, $items, $retry);
 			}
-			
+
 			foreach((array)$data['value'] as $item){
 				//var_dump($item);
 				$items[$item['name']] = array(
@@ -127,7 +127,7 @@
 			}
 		}
 
-		
+
 		//static function content($path){
 		//	$token = self::access_token();
 		//	fetch::$headers = "Authorization: bearer {$token}";
@@ -175,7 +175,7 @@
 			list($location, $tmp) = explode(PHP_EOL, $location);
 			return trim($location);
 		}
-		
+
 		static function create_upload_session($path){
 			$request = self::request($path, 'createUploadSession');
 			$request['post_data'] = '{"item": {"@microsoft.graph.conflictBehavior": "fail"}}';
@@ -225,46 +225,46 @@
 		static function file_content($file, $offset, $length){
 			$handler = fopen($file, "rb") OR die('获取文件内容失败');
 			fseek($handler, $offset);
-			
 			return fread($handler, $length);
 		}
 
 		static function human_filesize($size, $precision = 1) {
+			$file_unit = array('B','KB','MB','GB','TB','PB','EB','ZB','YB');
 			for($i = 0; ($size / 1024) > 1; $i++, $size /= 1024) {}
-			return round($size, $precision).(['B','KB','MB','GB','TB','PB','EB','ZB','YB'][$i]);
+			return round($size, $precision).($file_unit[$i]);
 		}
 
 		static function urlencode($path){
 			foreach(explode('/', $path) as $k=>$v){
-				if(empty(!$v)){
+				if(!empty($v)){
 					$paths[] = rawurlencode($v);
 				}
 			}
 			return @join('/',$paths);
 		}
-			
+
 		static function _filesize($path){
 		    if (!file_exists($path))
 		        return false;
 		    $size = filesize($path);
-		    
+
 		    if (!($file = fopen($path, 'rb')))
 		        return false;
-		    
+
 		    if ($size >= 0){//Check if it really is a small file (< 2 GB)
 		        if (fseek($file, 0, SEEK_END) === 0){//It really is a small file
 		            fclose($file);
 		            return $size;
 		        }
 		    }
-		    
+
 		    //Quickly jump the first 2 GB with fseek. After that fseek is not working on 32 bit php (it uses int internally)
 		    $size = PHP_INT_MAX - 1;
 		    if (fseek($file, PHP_INT_MAX - 1) !== 0){
 		        fclose($file);
 		        return false;
 		    }
-		    
+
 		    $length = 1024 * 1024;
 		    while (!feof($file)){//Read the file until end
 		        $read = fread($file, $length);
@@ -272,7 +272,7 @@
 		    }
 		    $size = bcsub($size, $length);
 		    $size = bcadd($size, strlen($read));
-		    
+
 		    fclose($file);
 		    return $size;
 		}

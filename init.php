@@ -68,7 +68,8 @@ if (!function_exists('config')) {
 
 // cache
 define('CACHE_PATH', ROOT.'cache/');
-cache::$type = empty( config('cache_type') )?'secache':config('cache_type');
+$cache_type = config('cache_type');
+cache::$type = empty($cache_type)?'secache':config('cache_type');
 
 
 if (!function_exists('db')) {
