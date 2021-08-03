@@ -19,7 +19,7 @@
 	  <textarea class="mdui-textfield-input"><audio src="<?php e($url);?>"></audio></textarea>
 	</div>
 </div>
-<a href="<?php e($url);?>" class="mdui-fab mdui-fab-fixed mdui-ripple mdui-color-theme-accent"><i class="mdui-icon material-icons">file_download</i></a>
+<a href="<?php e($url);?>" class="mdui-fab mdui-fab-fixed mdui-ripple mdui-color-pink-accent"><i class="mdui-icon material-icons">file_download</i></a>
 <script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
 <script>
 const ap = new APlayer({

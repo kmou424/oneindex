@@ -39,25 +39,6 @@ a{
 	max-width: 1100px;
 	margin: 0 auto;
 }
-/* 头像 */
-.avatar{
-	position: absolute;
-	top: 4px;
-	left: 5%;
-	width: 40px;
-	height: 40px;
-	border: 4px solid #ebe8e8;
-	border-radius: 50%;
-	transition: 1.2s;
-}
-/* 头像动画 */
-.avatar:hover{
-	transform: rotate(360deg);
-	-webkit-transform: rotate(360deg);
-	-moz-transform: rotate(360deg);
-	-o-transform: rotate(360deg);
-	-ms-transform: rotate(360deg);
-}
 .navRight{
 	position: absolute;
 	top: 13px;
@@ -85,7 +66,7 @@ a{
 	transition: color 0.2s ease-out,border 0.2s ease-out,opacity 0.2s ease-out;
 }
 .navli a:hover{
-	color: #35B995;
+	color: #ff4081;
 }
 /* 定义动画 */
 @-webkit-keyframes fadeIn {
@@ -106,25 +87,6 @@ opacity: 1; /*结尾状态 透明度为1*/
 	-webkit-animation-duration: 0.8s; /*动画持续时间*/
 	-webkit-animation-iteration-count: 1; /*动画次数*/
 	-webkit-animation-delay: 0s; /*延迟时间*/
-}
-/* 图标icon */
-.icon{
-	float: left;
-	width: 30px;
-	height: 30px;
-	background: url(./align-right.png);
-	background-size:100% 100%;
-	transition: .6s;
-}
-/* 图标动画icon */
-.icon:hover{
-	background: url(./close.png);
-	background-size:100% 100%;
-	transform: rotate(360deg);
-	-webkit-transform: rotate(360deg);
-	-moz-transform: rotate(360deg);
-	-o-transform: rotate(360deg);
-	-ms-transform: rotate(360deg);
 }
 /* 自带样式 */
 body {
@@ -215,7 +177,7 @@ body {
 
 .mdui-toolbar>a:last-child {
 	opacity: 1;
-	background-color: #7e7e7e;
+	background-color: #eebbcb;
 	color: #ffffff;
 }
 
@@ -236,30 +198,6 @@ body {
 	.mdui-toolbar>a:last-child,.mdui-toolbar>.mdui-typo-headline,.mdui-toolbar>i:first-child {
 		display: block
 	}
-}
-.mdui-theme-accent-blue .mdui-color-theme-accent {
-  color: #fff !important;
-  background-color: #35B995 !important;
-}
-.mdui-theme-accent-blue .mdui-typo a {
-  color: #35B995;
-}
-.mdui-theme-accent-blue .mdui-typo a:before {
-  background-color: #35B995;
-}
-.mdui-theme-accent-blue .mdui-textfield-focus .mdui-textfield-input {
-  border-bottom-color: #35b995;
-  -webkit-box-shadow: 0 1px 0 0 #35b995;
-          box-shadow: 0 1px 0 0 #35b995;
-}
-.mdui-theme-accent-blue .mdui-textfield-focus .mdui-textfield-label,
-.mdui-theme-accent-blue .mdui-textfield-focus .mdui-textfield-floating-label.mdui-textfield-focus .mdui-textfield-label,
-.mdui-theme-accent-blue .mdui-textfield-focus .mdui-icon {
-  color: #35B995;
-}
-.mdui-theme-primary-blue-grey .mdui-color-theme {
-  color: #fff !important;
-  background-color: #7e7e7e !important;
 }
 .mdui-typo code {
   padding: 2px 4px;

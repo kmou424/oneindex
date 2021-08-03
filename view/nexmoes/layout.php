@@ -5,9 +5,9 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no"/>
 	<title><?php e(config('site_name'));?> - 私人云服务</title>
 	<link rel="shortcut icon" href="//<?php print($_SERVER['HTTP_HOST']) ?>/view/nexmoes/theme/favicon.ico">
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdui@0.4.3/dist/css/mdui.min.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdui@1.0.1/dist/css/mdui.min.css">
 	<link rel="stylesheet" href="//<?php print($_SERVER['HTTP_HOST']) ?>/view/nexmoes/theme/style.css">
-	<script src="https://cdn.jsdelivr.net/npm/mdui@0.4.3/dist/js/mdui.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/mdui@1.0.1/dist/js/mdui.min.js"></script>
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
 	<script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
@@ -15,13 +15,12 @@
 <body class="mdui-theme-primary-blue-grey mdui-theme-accent-blue">
 	<header class="nav">
 		<div class="navSize">
-			<a href="/"><img class="avatar" src="http://q1.qlogo.cn/g?b=qq&nk=2689282850&s=640"/></a>
+			<a href="/"><img style="position: absolute;top: 4px;left: 5%;width: 40px;height: 40px;border: 4px solid #ebe8e8;border-radius: 50%" src="http://q1.qlogo.cn/g?b=qq&nk=2689282850&s=640"/></a>
 			<div class="navRight">
-				<ul class="navul">
-					<!--<li class="navli"><a href="//bilibili2233.cf" target="_blank">博客</a></li>-->
-					<li class="navli"><a href="//<?php print($_SERVER['HTTP_HOST']) ?>/?/login">登陆</a></li>
-				</ul>
-				<div class="icon"></div>
+				<!--<li class="navli"><a href="//kmou424.moe" target="_blank">博客</a></li>-->
+				<li class="navli"><a href="//<?php print($_SERVER['HTTP_HOST']) ?>/?/login"><div class="mdui-chip">
+					<span class="mdui-chip-title">进入后台</span></div></a>
+				</li>
 			</div>
 		</div>
 	</header>
