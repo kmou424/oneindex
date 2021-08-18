@@ -156,19 +156,19 @@ function downall() {
      }); // 构造Blog对象
      let a = document.createElement('a'); // 伪造一个a对象
      a.href = window.URL.createObjectURL(blob); // 构造href属性为Blob对象生成的链接
-     a.download = "folder_download_link.txt"; // 文件名称，你可以根据你的需要构造
+     a.download = "all_links.txt"; // 文件名称，你可以根据你的需要构造
      a.click() // 模拟点击
      a.remove();
 }
 
 function thumb(){
-	if($('.mdui-fab i').text() == "apps"){
-		$('.mdui-fab i').text("format_list_bulleted");
+	if($('.thumb-button').text() == "apps"){
+		$('.thumb-button').text("format_list_bulleted");
 		$('.nexmoe-item').removeClass('thumb');
 		$('.nexmoe-item .mdui-icon').show();
 		$('.nexmoe-item .mdui-list-item').css("background","");
 	}else{
-		$('.mdui-fab i').text("apps");
+		$('.thumb-button').text("apps");
 		$('.nexmoe-item').addClass('thumb');
 		$('.mdui-col-xs-12 i.mdui-icon').each(function(){
 			if($(this).text() == "image" || $(this).text() == "ondemand_video"){
@@ -208,5 +208,17 @@ $(function(){
 
 });
 </script>
-<a href="javascript:thumb();" class="mdui-fab mdui-fab-fixed mdui-ripple mdui-color-pink-accent"><i class="mdui-icon material-icons">format_list_bulleted</i></a>
+<!--<a href="javascript:thumb();" class="mdui-fab mdui-fab-fixed mdui-ripple mdui-color-pink-accent"><i class="mdui-icon material-icons">file_download</i></a>-->
+<!--<a href="javascript:thumb();" class="mdui-fab mdui-fab-fixed mdui-ripple mdui-color-pink-accent"><i class="mdui-icon material-icons">format_list_bulleted</i></a>-->
+<div class="mdui-fab-wrapper" mdui-fab>
+      <button class="mdui-fab mdui-ripple mdui-color-pink-accent" mdui-tooltip="{content: '移开来收起菜单', position: 'left'}">
+        <i class="mdui-icon material-icons">add</i>
+      </button>
+      <div class="mdui-fab-dial" style="height: 0px;">
+        <a href="//<?php print($_SERVER['HTTP_HOST']) ?>/login" class="mdui-fab mdui-fab-mini mdui-ripple mdui-color-pink-accent" mdui-tooltip="{content: '进入后台管理', position: 'left'}"><i class="mdui-icon material-icons">person</i></a>
+        <a href="javascript:downall();" class="mdui-fab mdui-fab-mini mdui-ripple mdui-color-pink-accent" mdui-tooltip="{content: '获取当前目录下所有文件下载链接', position: 'left'}"><i class="mdui-icon material-icons">file_download</i></a>
+        <a href="javascript:thumb();" class="mdui-fab mdui-fab-mini mdui-ripple mdui-color-pink-accent" mdui-tooltip="{content: '切换列表布局', position: 'left'}"><i class="mdui-icon material-icons thumb-button">format_list_bulleted</i></a>
+      </div>
+</div>
+
 <?php view::end('content');?>

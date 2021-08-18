@@ -17,10 +17,9 @@
 		<div class="navSize">
 			<a href="/"><img style="position: absolute;top: 4px;left: 5%;width: 40px;height: 40px;border: 4px solid #ebe8e8;border-radius: 50%" src="http://q1.qlogo.cn/g?b=qq&nk=2689282850&s=640"/></a>
 			<div class="navRight">
-				<!--<li class="navli"><a href="//kmou424.moe" target="_blank">博客</a></li>-->
-				<li class="navli"><a href="//<?php print($_SERVER['HTTP_HOST']) ?>/?/login"><div class="mdui-chip">
-					<span class="mdui-chip-title">进入后台</span></div></a>
-				</li>
+				<!--<div class="navli"><a href="//kmou424.moe" target="_blank">博客</a></div>-->
+				<!--<div class="navli"><a href="//<?php print($_SERVER['HTTP_HOST']) ?>/?/login"><div class="mdui-chip"><span class="mdui-chip-title">进入后台</span></div></a>
+				</div>-->
 			</div>
 		</div>
 	</header>
